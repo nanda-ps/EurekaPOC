@@ -1,0 +1,24 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: MANAGEMENT-SERVICE
+        uri: lb://MANAGEMENT-SERVICE
+        predicates:
+        - Path=/management/**
+      - id: ORDER-SERVICE
+        uri: lb://ORDER-SERVICE
+        predicates:
+        - Path=/order/**
+eureka:
+  instance:
+    hostname: "${HOSTNAME}.eureka"
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS}
