@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: MANAGEMENT-SERVICE
+eureka:
+  instance:
+    hostname: "${HOSTNAME}.eureka"
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_ADDRESS}
