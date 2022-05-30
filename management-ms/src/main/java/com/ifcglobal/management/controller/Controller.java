@@ -16,10 +16,10 @@ import org.springframework.web.client.RestTemplate;
 public class Controller {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
-	
+
 	@GetMapping("/")
 	public ResponseEntity<String> greet(){
 		logger.info("inside greet");
@@ -35,5 +35,5 @@ public class Controller {
 		}
 		return ResponseEntity.ok("s: " + s);
 	}
-	
+
 }

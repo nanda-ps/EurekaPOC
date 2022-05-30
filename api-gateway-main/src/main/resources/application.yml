@@ -6,19 +6,20 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: MANAGEMENT-SERVICE
-        uri: lb://MANAGEMENT-SERVICE
-        predicates:
-        - Path=/management/**
-      - id: ORDER-SERVICE
-        uri: lb://ORDER-SERVICE
-        predicates:
-        - Path=/order/**
+        - id: MANAGEMENT-SERVICE
+          uri: lb://MANAGEMENT-SERVICE
+          predicates:
+            - Path=/management/**
+        - id: ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
 eureka:
   instance:
-    hostname: "${HOSTNAME}.eureka"
+    preferIpAddress: true
+    hostname: eureka-0
   client:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: ${EUREKA_SERVER_ADDRESS}
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
