@@ -25,8 +25,6 @@ public class Controller {
 		logger.info("inside greet");
 		String s = "";
 		try {
-			//s = restTemplate.getForObject("http://ORDER-SERVICE/order/", String.class);
-			//s = restTemplate.exchange("http://"+ serviceHost +"/class", HttpMethod.GET, null,new ParameterizedTypeReference<String>() {});
 			s = restTemplate.exchange("http://ORDER-SERVICE/order/", HttpMethod.GET, null,
 					new ParameterizedTypeReference<String>() {
 					}).getBody();
